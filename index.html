@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number!</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="../backend/script.js"></script>
+
+</head>
+<body>
+    <!-- Interface to type the desired number, that will be sent to the database, reference from chatGPT -->
+    <h1>Guess the Number Game</h1>
+    <p>Type the number, so that the other player will try to guess it!</p>
+
+    <form action="/sendNumber" method="POST">
+        <div id="game">
+            <input type="text" name ="guess" id="guess" placeholder="Enter your number">
+            <button id="submit" onclick="sendNumber()">Submit</button>
+            <p id="message"></p>
+        </div>
+    </form>
+
+    <p id="message"></p>
+
+    <button onclick="hideNumber()">Hide number</button>
+
+    <!-- Interface to check if the number corresponds to the one sent by the other player -->
+    <p>Try and guess the number sent by the other player!</p>
+
+    <form action="/check" method="GET">
+        <div id="game">
+            <input type="text" name ="guess" id="guess" placeholder="Enter your guess">
+            <button id="submit">Submit</button>
+            <p id="message"></p>
+        </div>
+    </form>
+
+</body>
+</html>
